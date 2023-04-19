@@ -7,9 +7,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = {
   PORT: process.env.PORT || 5000,
-  JWT_SECRET: process.env.JWT_SECRET,
-  MONGO_URI: process.env.MONGO_URI,
-  NODE_ENV: process.env.NODE_ENV,
+  JWT_SECRET: process.env.JWT_SECRET || 091239011224534454,
+  MONGO_URI: process.env.MONGO_URI || 'mongodb+srv://admin:admin@poker.uttfuf3.mongodb.net/?retryWrites=true&w=majority',
+  NODE_ENV: process.env.NODE_ENV || development,
   INITIAL_CHIPS_AMOUNT: 30000,
   JWT_TOKEN_EXPIRES_IN: 3600000 * 24,
   SMTP_HOST: process.env.SMTP_HOST,
