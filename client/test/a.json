@@ -1,0 +1,65 @@
+{
+    "table": {
+        "id": "n101",
+        "name": "Room 1",
+        "limit": 10000,
+        "maxPlayers": 5,
+        "players": [
+            {
+                "socketId": "PxTmg5dBNLvV_sloAAAF",
+                "id": "643d1cecf9d545471486dc8a",
+                "name": "alexthap",
+                "bankroll": -80000
+            },
+            {
+                "socketId": "FI4rvXBDSH8nLSnWAAAD",
+                "id": "643bff3153e0ad210cc05692",
+                "name": "alexcao",
+                "bankroll": 10000
+            }
+        ],
+        "seats": {
+            "1": {
+                "id": 1,
+                "player": {
+                    "socketId": "FI4rvXBDSH8nLSnWAAAD",
+                    "id": "643bff3153e0ad210cc05692",
+                    "name": "alexcao",
+                    "bankroll": 10000
+                },
+                "buyin": 10000,
+                "stack": 10000,
+                "hand": [],
+                "bet": 0,
+                "turn": false,
+                "checked": true,
+                "folded": true,
+                "lastAction": null,
+                "sittingOut": false
+            },
+            "2": null,
+            "3": null,
+            "4": null,
+            "5": null
+        },
+        "board": [],
+        "deck": null,
+        "button": 1,
+        "turn": null,
+        "pot": 0,
+        "mainPot": 0,
+        "callAmount": null,
+        "minBet": 50,
+        "minRaise": 100,
+        "smallBlind": null,
+        "bigBlind": null,
+        "handOver": true,
+        "winMessages": [],
+        "wentToShowdown": false,
+        "sidePots": [],
+        "history": [],
+        "type": 0
+    },
+    "message": "alexcao sat down in Seat 1",
+    "from": null
+}
