@@ -27,7 +27,7 @@ app.use(express.static(path.join('server', 'public')));
 configureRoutes(app);
 
 // Start server and listen for connections
-const server = app.listen(config.PORT, () => {
+const server = app.listen(1904, () => {
   console.log(
     `Server is running in ${config.NODE_ENV} mode and is listening on port ${config.PORT}...`,
   );

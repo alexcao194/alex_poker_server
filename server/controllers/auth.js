@@ -38,17 +38,10 @@ exports.getCurrentUser = async (req, res) => {
 // @desc    Authenticate user & get token
 // @access  Public
 exports.login = async (req, res) => {
-  console.log(1)
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(200).json({
-      'message' : errors.array()[0]['msg']
-    });
-  }
   const { email, password } = req.body;
-
   try {
     let user = await User.findOne({ email });
+    console.log(user)
     if (!user) {
       return res.status(200).json({message : "invalid-credentials"});
     }
@@ -57,16 +50,15 @@ exports.login = async (req, res) => {
     if (!isMatch) {
       return res.status(200).json({message : "invalid-credentials"});
     }
-
     const payload = {
       user: {
-        id: user.id,
+        id: user._id,
       },
     };
     jwt.sign(
       payload,
-      config.JWT_SECRET,
-      { expiresIn: config.JWT_TOKEN_EXPIRES_IN },
+      'config.JWT_SECRET',
+      { expiresIn: 3600000 * 24 },
       (err, token) => {
         if (err) throw err;
         res.json({ 
@@ -76,7 +68,8 @@ exports.login = async (req, res) => {
       },
     );
   } catch (err) {
-    console.error(err.message);
+    console.log(2)
+    console.error(err);
     return res.status(200).json({message : "internal-server-error"});
   }
 };
