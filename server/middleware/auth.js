@@ -7,7 +7,7 @@ const validateToken = (req, res, next) => {
   if (!token) return res.status(401).json({ msg: 'Unauthorized request!' });
 
   try {
-    jwt.verify(token, config.JWT_SECRET, (err, decoded) => {
+    jwt.verify(token, "config.JWT_SECRET", (err, decoded) => {
       if (err) {
         res.status(401).json({ msg: 'Unauthorized request!' });
         console.error(err);
@@ -22,4 +22,4 @@ const validateToken = (req, res, next) => {
   }
 };
 
-module.exports = validateToken;
+module.exports = validateToken; 
