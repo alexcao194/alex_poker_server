@@ -2,9 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
 const { validationResult } = require('express-validator');
-const { WelcomeMail } = require('../mails');
 const User = require('../models/User');
-const sendEmail = require('../helpers/sendMail');
 
 // @route   POST api/users
 // @desc    Register User
@@ -36,13 +34,6 @@ exports.register = async (req, res) => {
     user.password = await bcrypt.hash(password, salt);
 
     await user.save();
-
-    try {
-      await sendEmail(user.email, WelcomeMail(user.name));
-    } catch (error) {
-      console.log(error);
-    }
-
     const payload = {
       user: {
         id: user.id,
