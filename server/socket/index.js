@@ -151,7 +151,7 @@ const init = (socket, io) => {
   socket.on(FETCH_LOBBY_INFO, async ({token, type}) => {
     let user;
 
-    jwt.verify(token, config.JWT_SECRET, (err, decoded) => {
+    jwt.verify(token, "config.JWT_SECRET", (err, decoded) => {
       if (err) console.log(err);
       else {
         user = decoded.user;

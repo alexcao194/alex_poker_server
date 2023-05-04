@@ -42,7 +42,7 @@ exports.register = async (req, res) => {
 
     jwt.sign(
       payload,
-      config.JWT_SECRET,
+      'config.JWT_SECRET',
       { expiresIn: config.JWT_TOKEN_EXPIRES_IN },
       (err, token) => {
         if (err) throw err;
