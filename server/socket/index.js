@@ -151,7 +151,7 @@ const init = (socket, io) => {
   socket.on(FETCH_LOBBY_INFO, async ({token, type}) => {
     let user;
 
-    jwt.verify(token, "config.JWT_SECRET", (err, decoded) => {
+    jwt.verify(token, 'config.JWT_SECRET', (err, decoded) => {
       if (err) console.log(err);
       else {
         user = decoded.user;
@@ -386,11 +386,12 @@ const init = (socket, io) => {
   }
 
   function broadcastToTable(table, message = null, from = null) {
+    console.log(table)
     for (let i = 0; i < table.players.length; i++) {
       let socketId = table.players[i].socketId;
       let tableCopy = hideOpponentCards(table, socketId);
       io.to(socketId).emit(TABLE_UPDATED, {
-        table: getCurrentTable(tableCopy.id),
+        table: tableCopy,
         message,
         from,
       });
@@ -441,7 +442,7 @@ const init = (socket, io) => {
         seat.player.socketId !== socketId &&
         !(seat.lastAction === WINNER && tableCopy.wentToShowdown)
       ) {
-        seat.hand = hiddenHand;
+        seat.hand = null;
       }
     }
     return tableCopy; 
